@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "SearchDemo2";
+}
+@using XianShou.bcyoo.Model.SearchModel
+@using XianShou.bcyoo.Admin.Models
+@model DemoSearchModel
+
+@using (Ajax.BeginForm("ResultDemo2", new AjaxOptions { UpdateTargetId = "rsResult", OnBegin = "$.loadingTips()", OnComplete = "$.loadingClose()" }))
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    关键字：
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.BrandName, new { @style = "width:100px;" })
+                </td>
+
+
+                @Html.HiddenFor(m => m.PageIndex)
+
+                <td>
+                    @Html.SubmitButton("查询", new { id = "btnSearch", style = "margin:0px 0px 0px 20px;" })
+                </td>
+                <td>
+                    <a href="#" class="btn btn-info"  onclick="UpdateBrand(0)" style="margin:0px 0px 0px 100px;">
+                        新增
+                    </a>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div id="rsResult" style="margin:20px 0px 0px 0px;">
+        @Html.Partial("DemoResultView")
+    </div>
+}
+
+<script type="text/javascript">
+    function UpdateBrand(id) {
+        var url = window.SecondCatlog + "/Demo/DemoSave?id=" + id ;
+        if (id == 0) {
+            $.showModalDialog(url, 500, 200, "新增", null,
+                function (data) {
+                    if (data.msg == "ok") {
+                        $("#btnSearch").click();
+                    }
+                });
+        } else {
+            $.showModalDialog(url, 500, 200, "修改", null,
+                function (data) {
+                    if (data.msg == "ok") {
+                        $("#btnSearch").click();
+                    }
+                });
+        }
+    }
+
+</script>

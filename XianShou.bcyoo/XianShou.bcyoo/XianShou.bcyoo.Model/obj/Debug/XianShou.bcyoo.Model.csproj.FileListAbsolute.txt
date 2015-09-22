@@ -1,0 +1,11 @@
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\XianShou.bcyoo.Model.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\XianShou.bcyoo.Model.pdb
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Common.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Interfaces.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.OrmLite.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Text.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Common.xml
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.dll
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.pdb
+D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.csprojResolveAssemblyReference.cache

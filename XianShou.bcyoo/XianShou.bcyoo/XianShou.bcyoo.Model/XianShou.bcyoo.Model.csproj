@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0872A613-6C7F-4BD0-B37E-B303C2C60840}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XianShou.bcyoo.Model</RootNamespace>
+    <AssemblyName>XianShou.bcyoo.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ServiceStack.Common, Version=4.0.36.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.0.36\lib\net40\ServiceStack.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.36\lib\portable-wp80+sl5+net40+win8+monotouch+monoandroid\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=4.0.36.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.4.0.36\lib\net45\ServiceStack.OrmLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=4.0.36.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.4.0.36\lib\net45\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.0.36.1\lib\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enum\MessageIconEnum.cs" />
+    <Compile Include="Enum\OrderType.cs" />
+    <Compile Include="ExtendModel\DynamicDataEntity.cs" />
+    <Compile Include="ExtendModel\ReturnInfoModel.cs" />
+    <Compile Include="ExtendModel\UserInfoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchModel\BaseSearchModel.cs" />
+    <Compile Include="SearchModel\BaseSearchResultModel.cs" />
+    <Compile Include="SearchModel\DemoSearchModel.cs" />
+    <Compile Include="SearchModel\DemoSearchResultModel.cs" />
+    <Compile Include="TableModel\Activity_Coupon.cs" />
+    <Compile Include="TableModel\Activity_Exchange.cs" />
+    <Compile Include="TableModel\Activity_Full.cs" />
+    <Compile Include="TableModel\Activity_FullGiftDetail.cs" />
+    <Compile Include="TableModel\Activity_Spike.cs" />
+    <Compile Include="TableModel\Ad.cs" />
+    <Compile Include="TableModel\Area.cs" />
+    <Compile Include="TableModel\Bargain.cs" />
+    <Compile Include="TableModel\Bargain_Activities.cs" />
+    <Compile Include="TableModel\Bargain_AddressInfo.cs" />
+    <Compile Include="TableModel\Bargain_Detail.cs" />
+    <Compile Include="TableModel\Bargain_Winners.cs" />
+    <Compile Include="TableModel\Client_Message.cs" />
+    <Compile Include="TableModel\Common_Area.cs" />
+    <Compile Include="TableModel\Common_Code.cs" />
+    <Compile Include="TableModel\Common_Express.cs" />
+    <Compile Include="TableModel\Employee.cs" />
+    <Compile Include="TableModel\Employee_Department.cs" />
+    <Compile Include="TableModel\Employee_Menu.cs" />
+    <Compile Include="TableModel\Employee_Report.cs" />
+    <Compile Include="TableModel\Employee_Role.cs" />
+    <Compile Include="TableModel\FeedBack.cs" />
+    <Compile Include="TableModel\Finance_PayShopOrder.cs" />
+    <Compile Include="TableModel\Finance_RefundShopOrder.cs" />
+    <Compile Include="TableModel\Info_ApplyAllergy.cs" />
+    <Compile Include="TableModel\Info_ApplyTrain.cs" />
+    <Compile Include="TableModel\Info_Article.cs" />
+    <Compile Include="TableModel\Info_ArticleType.cs" />
+    <Compile Include="TableModel\Info_DayDate.cs" />
+    <Compile Include="TableModel\Info_DayDateType.cs" />
+    <Compile Include="TableModel\Info_PageTemplete.cs" />
+    <Compile Include="TableModel\JobReport.cs" />
+    <Compile Include="TableModel\LevelSetting.cs" />
+    <Compile Include="TableModel\Material.cs" />
+    <Compile Include="TableModel\Material_Subscribe.cs" />
+    <Compile Include="TableModel\Material_Tag.cs" />
+    <Compile Include="TableModel\Material_Type.cs" />
+    <Compile Include="TableModel\Member.cs" />
+    <Compile Include="TableModel\MemberOrder.cs" />
+    <Compile Include="TableModel\MemberOrder_Commission.cs" />
+    <Compile Include="TableModel\MemberOrder_Detail.cs" />
+    <Compile Include="TableModel\MemberOrder_Record.cs" />
+    <Compile Include="TableModel\MemberUploadMaterial.cs" />
+    <Compile Include="TableModel\Member_Balance.cs" />
+    <Compile Include="TableModel\Member_BankAccount.cs" />
+    <Compile Include="TableModel\Member_CommissionBalance.cs" />
+    <Compile Include="TableModel\Member_Coupon.cs" />
+    <Compile Include="TableModel\Member_ExpandRecord.cs" />
+    <Compile Include="TableModel\Member_Extend.cs" />
+    <Compile Include="TableModel\Member_LoginCode.cs" />
+    <Compile Include="TableModel\Member_Menu.cs" />
+    <Compile Include="TableModel\Member_PointOrder.cs" />
+    <Compile Include="TableModel\Member_PointRecord.cs" />
+    <Compile Include="TableModel\Member_RecommendRecord.cs" />
+    <Compile Include="TableModel\Member_Record.cs" />
+    <Compile Include="TableModel\Member_RedPack.cs" />
+    <Compile Include="TableModel\Member_Region.cs" />
+    <Compile Include="TableModel\Member_Role.cs" />
+    <Compile Include="TableModel\Member_RoleType.cs" />
+    <Compile Include="TableModel\Member_WithdrawBalance.cs" />
+    <Compile Include="TableModel\Picture.cs" />
+    <Compile Include="TableModel\Product.cs" />
+    <Compile Include="TableModel\ProductReturn.cs" />
+    <Compile Include="TableModel\Product_Activity.cs" />
+    <Compile Include="TableModel\Product_Brand.cs" />
+    <Compile Include="TableModel\Product_Category.cs" />
+    <Compile Include="TableModel\Product_GiftDetails.cs" />
+    <Compile Include="TableModel\Product_Grade.cs" />
+    <Compile Include="TableModel\Product_PriceSystem.cs" />
+    <Compile Include="TableModel\Product_Spec.cs" />
+    <Compile Include="TableModel\Product_StockNew.cs" />
+    <Compile Include="TableModel\Product_UploadMaterial.cs" />
+    <Compile Include="TableModel\Rebate_Configure.cs" />
+    <Compile Include="TableModel\Rebate_Type.cs" />
+    <Compile Include="TableModel\Record_IndexScanCode.cs" />
+    <Compile Include="TableModel\Record_ScanCode.cs" />
+    <Compile Include="TableModel\Shop_Customer.cs" />
+    <Compile Include="TableModel\Shop_CustomerAddress.cs" />
+    <Compile Include="TableModel\Shop_CustomerBrowse.cs" />
+    <Compile Include="TableModel\Shop_CustomerCart.cs" />
+    <Compile Include="TableModel\Shop_CustomerComment.cs" />
+    <Compile Include="TableModel\Shop_CustomerComment_Picture.cs" />
+    <Compile Include="TableModel\Shop_CustomerFavorite.cs" />
+    <Compile Include="TableModel\Shop_Platform.cs" />
+    <Compile Include="TableModel\Shop_PlatformBalance.cs" />
+    <Compile Include="TableModel\TextMessage.cs" />
+    <Compile Include="TableModel\vArticle.cs" />
+    <Compile Include="TableModel\vDayDate.cs" />
+    <Compile Include="TableModel\vMember_Balance.cs" />
+    <Compile Include="TableModel\VOrderDetail_Product.cs" />
+    <Compile Include="TableModel\vShop_CustomerComment.cs" />
+    <Compile Include="TableModel\V_ActivityFull_Spike.cs" />
+    <Compile Include="TableModel\V_BalanceDetail.cs" />
+    <Compile Include="TableModel\v_BargainActivitiesProduct.cs" />
+    <Compile Include="TableModel\V_CheckCenter.cs" />
+    <Compile Include="TableModel\v_Daqu.cs" />
+    <Compile Include="TableModel\V_Material.cs" />
+    <Compile Include="TableModel\V_MaterialDetail.cs" />
+    <Compile Include="TableModel\V_MemberBalance_Order.cs" />
+    <Compile Include="TableModel\V_MemberBalance_Rechange.cs" />
+    <Compile Include="TableModel\v_MemberOrder.cs" />
+    <Compile Include="TableModel\V_MemberOrderDetail_All.cs" />
+    <Compile Include="TableModel\V_MemberOrder_Commission.cs" />
+    <Compile Include="TableModel\V_MemberOrder_Commission_Product_Detail.cs" />
+    <Compile Include="TableModel\V_MemberOrder_Detail_CustomerId.cs" />
+    <Compile Include="TableModel\V_MemberOrder_Detail_Product.cs" />
+    <Compile Include="TableModel\V_MemberOrder_MemberOrder_Commission.cs" />
+    <Compile Include="TableModel\V_Member_All.cs" />
+    <Compile Include="TableModel\V_Member_All_Record.cs" />
+    <Compile Include="TableModel\V_Member_CommissionBalance.cs" />
+    <Compile Include="TableModel\V_Member_Coupon.cs" />
+    <Compile Include="TableModel\V_Member_ExpandRecord.cs" />
+    <Compile Include="TableModel\V_Member_PointRecord.cs" />
+    <Compile Include="TableModel\V_Member_RecommendRecord.cs" />
+    <Compile Include="TableModel\V_Member_Record.cs" />
+    <Compile Include="TableModel\v_Member_Region.cs" />
+    <Compile Include="TableModel\v_Member_Role.cs" />
+    <Compile Include="TableModel\V_Member_Withdraw.cs" />
+    <Compile Include="TableModel\V_Order.cs" />
+    <Compile Include="TableModel\V_OrderComment.cs" />
+    <Compile Include="TableModel\V_OrderCommentChecked.cs" />
+    <Compile Include="TableModel\V_OrderDetail.cs" />
+    <Compile Include="TableModel\V_OrderPending.cs" />
+    <Compile Include="TableModel\V_Order_Detail.cs" />
+    <Compile Include="TableModel\V_ProductStock_All.cs" />
+    <Compile Include="TableModel\V_ProductSystem_All.cs" />
+    <Compile Include="TableModel\V_Product_Brand.cs" />
+    <Compile Include="TableModel\V_Product_Category.cs" />
+    <Compile Include="TableModel\V_Product_Rebate.cs" />
+    <Compile Include="TableModel\V_Product_Rebate_Configure_Rebate_Type.cs" />
+    <Compile Include="TableModel\V_Rabate_Configure.cs" />
+    <Compile Include="TableModel\V_Rebate_Type.cs" />
+    <Compile Include="TableModel\V_Shop_CustomerFavorite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

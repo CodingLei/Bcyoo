@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "WebAPIDemo";
+}
+
+@using XianShou.bcyoo.Model.SearchModel
+@using XianShou.bcyoo.Admin.Models
+
+
+@using (Ajax.BeginForm("WebAPIPost", new AjaxOptions { UpdateTargetId = "rsResult", OnBegin = "$.loadingTips()", OnComplete = "$.loadingClose()" }))
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    Id：
+                </td>
+                <td>
+                    @Html.TextBox("Ids", null, new { id = "Ids", @style = "width:100px;" })
+                </td>
+                <td>
+                    @Html.SubmitButton("后台POST请求", new { id = "btnSearch", style = "margin:0px 0px 0px 20px;" })
+                    @Html.PrimaryButton("前台ajax请求", new { id = "btnajax" })
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div id="rsResult" style="margin:20px 0px 0px 0px;">
+        @Html.Partial("DemoResultView")
+    </div>
+    <div id="ajaxResult"></div>
+}
+<script type="text/javascript">
+    $("#btnajax").click(function () {
+        var param = {
+            ids: $("#Ids").val()
+        };
+        $.ajax({
+            url: "http://192.168.88.133:888/Api/Demo/GetBrandList",
+            type: "POST",
+            data: { "": $("#Ids").val() },
+            //contentType: "application/json",
+            //dataType: 'JSONP',
+            success: function (d) {
+                $("#ajaxResult").html(d)
+            }
+        });
+    });
+
+
+</script>

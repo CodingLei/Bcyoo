@@ -1,0 +1,60 @@
+﻿
+@using XianShou.bcyoo.Model.TableModel
+@using XianShou.bcyoo.Admin.Models
+@using XianShou.bcyoo.Common.Helper
+@model List<Product_Brand>
+<table class="table table-hover">
+    <colgroup>
+        <col width="25%" />
+        <col width="25%" />
+        <col width="25%" />
+        <col width="25%" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>
+                品牌名
+            </th>
+            <th>
+                添加时间
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.BrandName
+                    </td>
+                    <td>
+                        @item.AddTime
+                    </td>
+                    <td>
+                        <span class="@( item.Delstatus==1? "label label-danger":"label label-success")">@( item.Delstatus == 1 ? "无效" : "有效")</span>
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="###" onclick="UpdateBrand(@(item.IDPlus))">编辑</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr class="danger">
+                <td colspan="4">
+                    没有任何数据
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.Pager(ConvertHelper.ConvertToInt(ViewData["TotalCount"]))

@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "SearchDemo1";
+}
+
+<!doctype html>
+<html ng-app="productbrand" ng-controller="BrandController">
+<body>
+    <!-- Button trigger modal -->
+    <div style="height:60px;">
+        <form>
+            <strong>关键字查询</strong> &nbsp;<input type="text" id="keyword" ng-model="query" placeholder="关键字查询" />&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary" ng-click="Select()">查询</button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="productEdit={}">
+                添加品牌
+            </button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加</h4>
+                </div>
+                <div class="modal-body" ng-model="productEdit">
+                    <form>
+                        <input type="hidden" ng-model="productEdit.ProductBrandId" />
+                        <div class="form-group">
+                            <label for="brand_name" class="control-label">品牌名称:</label>
+                            <span data-toggle="popover" data-placement="top" data-trigger="focus" data-content="填写品牌名称！">
+                                <input type="text" class="form-control" id="brand_name" ng-model="productEdit.BrandName">
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="Create()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <colgroup>
+            <col width="35%" />
+            <col width="25%" />
+            <col width="20%" />
+            <col width="20%" />
+        </colgroup>
+        <tr>
+            <td>品牌名</td>
+            <td>添加时间</td>
+            <td>状态</td>
+            <td colspan="2">操作</td>
+        </tr>
+        <tr ng-show="Products.length==0">
+            <td colspan="4" align="center" style="color:red">没有要查询的数据</td>
+        </tr>
+        <tr ng-show="Products.length>0" ng-repeat="product in Products | filter: {BrandName:query}" id="tr1">
+            <td>{{ product.BrandName }}</td>
+            <td>{{ product.AddTime }}</td>
+            <td><span ng-class="product.Delstatus ? 'label label-danger':'label label-success' ">{{ product.Delstatus==1 ? "无效":"有效"}}</span></td>
+            <td colspan="2">
+                <a href="#" ng-click='Edit(product)' data-toggle='modal' data-target='#myModal'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" ng-click='Del(product,1)'>
+                    <span ng-switch on="{{ product.Delstatus}}">
+                        <span ng-switch-when="0">设为无效</span>
+                    </span>
+                </a><a href="#" ng-click='Del(product,0)'>
+                    <span ng-switch on="{{ product.Delstatus}}">
+                        <span ng-switch-when="1">设为有效</span>
+                    </span>
+                </a>
+            </td>
+        </tr>
+
+    </table>
+
+    @XianShou.bcyoo.Admin.Models.MvcHelper.PagerIndex()
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+
+        angular.module('productbrand', ['ui.bootstrap']);
+        angular.module('productbrand').controller('BrandController', function ($scope, $http) {
+            var pageInit = function () {
+                $.PageInit($scope, $http, {
+                    itemsPerPage: 5,
+                    BrandName: $("#keyword").val(),
+                    getDataUrl: "/Demo/ResultDemo1",
+                    eventFunction: function () { $scope.Products = $scope.ResponseData.ProductBrandList }
+                });
+            }
+            pageInit();
+            //查询
+            $scope.Select = function () {
+                pageInit();
+            };
+
+            $scope.Create = function () {
+                if ($.trim($("#brand_name").val()) == "") {
+                    $("#brand_name").focus();
+                    return false;
+                }
+                $http.post('/Demo/DemoSave', $scope.productEdit).success(function (data) {
+                    if (angular.isUndefined($scope.productEdit.IDPlus) || $scope.productEdit.IDPlus === null) {
+                        $scope.Select();
+                    } else {
+                        $scope.Select();
+                    }
+
+                    $("#myModal").modal('hide');
+                });
+            };
+
+            $scope.Edit = function (data) {
+                $("#myModalLabel").text("编辑");
+                $scope.productEdit = angular.copy(data);
+            };
+
+
+        });
+    </script>
+</body>
+</html>
+
+

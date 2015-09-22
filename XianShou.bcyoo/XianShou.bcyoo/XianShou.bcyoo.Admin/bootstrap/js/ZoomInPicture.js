@@ -1,0 +1,30 @@
+﻿
+function ZoomInMouseOver(event, outDiv, imgDiv, zoomSize) {
+    var offsetX = 20 - $("#" + outDiv).offset().left;
+    var offsetY = 20 - $("#" + outDiv).offset().top;
+    var size = zoomSize * $('#' + imgDiv).width();
+    var $target = $(event.target);
+    if ($target.is('img')) {
+        $("<img id='tip' src='" + $target.attr("src") + "'>").css({
+            "height": size,
+            "width": size,
+            "top": event.pageX + offsetX,
+            "z-index": 100,
+            "left": event.pageY + offsetY,
+        }).appendTo($("#" + outDiv));
+    }
+}
+
+function ZoomInMouseOut() {
+    $("#tip").remove();
+}
+
+function ZoomInMouseMove(event, outDiv) {
+    var offsetX = 20 - $("#" + outDiv).offset().left;
+    var offsetY = 20 - $("#" + outDiv).offset().top;
+    $("#tip").css(
+        {
+            "left": event.pageX + offsetX,
+            "top": event.pageY + offsetY
+        });
+}

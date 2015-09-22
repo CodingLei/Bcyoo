@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "LoginOn";
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录</title>
+
+
+    <!-- Loading Flat UI -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="/scripts/jquery-1.9.1.min.js"></script>
+    <script src="/scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/lhgdialog/lhgDialog.extension.min.js"></script>
+    <script src="/scripts/global.ajaxform.js"></script>
+    <link href="/dist/css/flat-ui.css" rel="stylesheet" />
+
+    <link href="/dist/css/demo.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/html5shiv.js"></script>
+      <script src="dist/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container" style="margin-top:90px;">
+        @using (Ajax.BeginForm("LoginSubmit", "Account",
+            new AjaxOptions
+            {
+                OnBegin = "CheckSubmit",
+                OnFailure = "onFailure",
+                OnSuccess = "onSuccess"
+            },
+            new { }))
+        {
+            <div class="login">
+                <div class="login-screen">
+                    <div class="login-icon">
+                        <img src="~/dist/img/login/icon.png" alt="Welcome to bcyoo">
+                        <h4>Welcome to <small>不错哟后台</small></h4>
+                    </div>
+
+                    <div class="login-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control login-field" value="" placeholder="Enter your name" name="UserName" id="UserName">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control login-field" value="" placeholder="Password" name="PassWord" id="PassWord">
+                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                        </div>
+                        <input type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #1abc9c; border-color: #1abc9c;" id="btnLogin" value="登录" />
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+    </div> <!-- /container -->
+
+    <input type="hidden" id="returnUrl" value="@(HttpUtility.UrlDecode(Request["returnUrl"]))" />
+    <input type="hidden" id="secondCatlog" value="@(XianShou.bcyoo.Admin.Models.MvcHelper.SecondCatlog())" />
+</body>
+</html>
+
+<script type="text/javascript">
+    function CheckSubmit() {
+        if ($.trim($("#UserName").val()).length == 0) {
+            alert("请输入用户名！");
+            $("#UserName").focus();
+            return false;
+        }
+        if ($.trim($("#PassWord").val()).length == 0) {
+            alert("请输入密码！");
+            $("#PassWord").focus();
+            return false;
+        }
+    }
+
+
+    function onFailure(response) {
+        alert(response.responseText);
+    }
+
+    function onSuccess(data) {
+        if (data.IsSuccess) {
+            if ($("#returnUrl").val() == null || $("#returnUrl").val() == "") {
+                window.location.href = $("#secondCatlog").val() + "/Home/HomeIndex";
+            } else {
+                window.location.href = $("#secondCatlog").val() + $("#returnUrl").val();
+            }
+        } else {
+            alert(data.Message);
+        }
+    }
+
+</script>

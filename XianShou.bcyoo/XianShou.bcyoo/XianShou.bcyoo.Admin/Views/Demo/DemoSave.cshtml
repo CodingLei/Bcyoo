@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "DemoSave";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using XianShou.bcyoo.Model.TableModel
+@using XianShou.bcyoo.Admin.Models
+@model Product_Brand
+
+@using (Ajax.BeginForm("DemoSave", new AjaxOptions
+{
+    OnBegin = "CheckSubmit",
+    HttpMethod = "Post",
+    OnSuccess = "SaveResult",
+    OnFailure = "SaveResult"
+}))
+{
+    <div class="modal-body">
+    <div class="form-group">
+        <label for="brand_name" class="control-label">品牌名称:</label>
+        <span data-toggle="popover" data-placement="top" data-trigger="focus" data-content="填写品牌名称！">
+            @Html.TextBoxFor(m => m.BrandName, new { @style = "width:200px;" })
+        </span>
+    </div>
+</div>
+    <div class="modal-footer">
+        @Html.SubmitButton("保存", new { id = "btnSave", style = "margin:0px 0px 0px 80px;" })
+        @Html.Button("取消", new { id = "btnCancel", @class = "btn btn-default", style = "margin:0px 0px 0px 20px;" }, "btn-default")
+    </div>
+
+
+    @Html.HiddenFor(m => m.AddTime)
+    @Html.HiddenFor(m => m.Delstatus)
+    @Html.HiddenFor(m => m.DisplayOrder)
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.IDPlus)
+    @Html.HiddenFor(m => m.IsDisplay)
+}
+<script type="text/javascript">
+
+    function CheckSubmit() {
+        if ($.trim($("#BrandName").val()).length == 0) {
+            $.alert("请输入品牌名称!", null, function () {
+                $("#BrandName").focus();
+            });
+            return false;
+        }
+        return true;
+    }
+
+    function SaveResult(data) {
+        if (data.IsSuccess) {
+            alert("恭喜：保存成功！");
+            $.returnDialogResult({ msg: "ok" });
+        }
+        else {
+            alert("抱歉，保存失败:" + data.Message);
+        }
+    }
+
+    //取消新增修改
+    $("#btnCancel").click(function () {
+        $.returnDialogResult({ msg: "close" });
+    });
+
+</script>

@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Demo";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<script language="javascript" type="text/javascript">
+
+    function openDialog() {
+        $.showModalDialog(location.pathname + '?v=' + new Date().getTime(), 800, 600, "可继续点击多层弹窗");
+    }
+
+    function openContentDialog() {
+        $.showContentDialog("<div><li>111</li><li>222</li><li>333</li></div>", 400, 300, "HTML内容窗口", "ContentDialog", true);
+    }
+
+    function openNotice() {
+        $.notice("还是带动画效果的哟！！", 200, 100, "浮动消息提示", new Date().toLocaleTimeString(), 100);
+    }
+
+    function openAlert() {
+        $.alert("消息提示", 1, function () {
+            $.tips("接下来想执行什么呢？", 2, true);
+        });
+    }
+
+    function openErrAlert() {
+        $.alert("系统错误", 3);
+    }
+
+    function openConfirm() {
+        $.confirm("测试确认提示",
+            function () {
+                $("#txtCallback").val(true);
+            },
+            function () {
+                $("#txtCallback").val(false);
+            }
+        );
+    }
+
+    function openLoadingTips() {
+        $.loadingTips('数据加载遮罩层');
+        setTimeout('closeLoading()', 2000);
+        //closeLoading();
+    }
+
+    function closeLoading() {
+        $.loadingClose(2, '加载成功！', 2, function () {
+            $.alert("ok");
+        });
+    }
+
+    function openDialogCallback() {
+        //IE下如果url是页面自身一样，需要加个额外参数，否则会被缓存而打不开
+        $.showModalDialog(location.pathname + '?v=' + new Date().getTime(), 800, 600, "可继续点击多层弹窗", null,
+            function (data) {
+                $("#txtCallback").val(data.Message);
+            });
+    }
+
+    function closeDialog() {
+        //想直接关闭窗口，就不设置isCloseDialog参数或设置为true
+        $.returnDialogResult({ Message: "回写成功：" + new Date().getTime() }, true);
+    }
+
+    function openTips() {
+        $.tips("还是带动画效果的哟", 2, true, function () {
+            $.alert("ok");
+        });
+    }
+
+
+</script>
+
+<div>
+    <input id="btnDialog" type="button" value="弹窗演示，可多层叠加弹窗" onclick="openDialog();" />
+    <span>注：IE下如果目标url和页面url一样，需要加个额外参数，否则会被缓存而打不开</span>
+    <br />
+    <br />
+    <input id="btnContentDialog" type="button" value="HTML内容窗口" onclick="openContentDialog();" />
+    <br />
+    <br />
+    <input id="btnNotice" type="button" value="右下角浮动消息窗" onclick="openNotice();" />
+    <br />
+    <br />
+    <input id="btnTips" type="button" value="中央浮动消息提示" onclick="openTips();" />
+    <br />
+    <br />
+    <input id="btnAlert" type="button" value="消息提示框" onclick="openAlert();" />
+    <br />
+    <br />
+    <input id="btnErrAlert" type="button" value="错误提示框" onclick="openErrAlert();" />
+    <br />
+    <br />
+    <input id="btnConfirm" type="button" value="确认提示框" onclick="openConfirm();" />
+    <br />
+    <br />
+    <input id="btnLoading" type="button" value="数据加载遮罩" onclick="openLoadingTips();" />
+    <br />
+    <br />
+    <input id="btnDialogCallback" type="button" value="弹窗回调演示" onclick="openDialogCallback();" />
+    <br />
+    <br />
+    <input id="btnCloseDialog" type="button" value="窗口数据回写" onclick="closeDialog();" />
+    <span>注：想直接关闭窗口，就把isCloseDialog参数不设置或设置为true</span>
+    <br />
+    <br />
+    <input type="text" id="txtCallback" name="txtCallback" value="回写内容" />
+    <br />
+    <br />
+    
+</div>

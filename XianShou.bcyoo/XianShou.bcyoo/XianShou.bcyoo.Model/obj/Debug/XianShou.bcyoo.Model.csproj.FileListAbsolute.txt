@@ -9,3 +9,14 @@ D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.C
 D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.dll
 D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.pdb
 D:\项目\不错哟\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.csprojResolveAssemblyReference.cache
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\XianShou.bcyoo.Model.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\XianShou.bcyoo.Model.pdb
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Common.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Interfaces.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.OrmLite.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Text.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\bin\Debug\ServiceStack.Common.xml
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.csprojResolveAssemblyReference.cache
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.dll
+D:\Bcyoo\XianShou.bcyoo\XianShou.bcyoo\XianShou.bcyoo.Model\obj\Debug\XianShou.bcyoo.Model.pdb
